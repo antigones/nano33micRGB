@@ -2,7 +2,7 @@
 #include <arduinoFFT.h>
 
 #define SAMPLES 256             //Must be a power of 2
-#define SAMPLING_FREQUENCY 8000 //Hz, must be less than 10000 due to ADC
+#define SAMPLING_FREQUENCY 16000 //Hz, must be less than 10000 due to ADC
 short sampleBuffer[SAMPLES];
 volatile int samplesRead;
 
@@ -79,11 +79,11 @@ void loop() {
     
     Serial.println(peak);
     
-    if (peak <=300)
+    if (peak <=600)
       lightOne();
-    if (peak >300 && peak < 600)
+    if (peak >600 && peak < 1200)
       lightTwo();
-    if (peak >= 600)
+    if (peak >= 1200)
       lightThree();
     samplesRead = 0;
    
